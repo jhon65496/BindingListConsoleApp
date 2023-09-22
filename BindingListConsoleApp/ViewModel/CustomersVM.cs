@@ -45,9 +45,12 @@ namespace BindingListConsoleApp
 
        
         public void Update(Customer baseCustomer, Customer newCustomer)
-        {            
-            int index = CustomersBl.IndexOf(baseCustomer);            
-            CustomersBl[index] = newCustomer;         
+        {
+            // int index = CustomersBl.IndexOf(baseCustomer);            
+            int index = CustomersBl.IndexOf(CustomersBl.First(c => c.CustomerID == baseCustomer.CustomerID));
+            CustomersBl[index] = newCustomer;
+            var result = CustomersBl[index];
+            // Debug.WriteLine($"{}");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
